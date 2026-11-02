@@ -1,0 +1,27 @@
+{
+  "name": "cabnect1",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node --env-file=.env server.js",
+    "test": "node --test test/*.test.js",
+    "test:integration": "node --env-file=.env --test test/integration.js"
+  },
+  "keywords": [],
+  "author": "",
+  "description": "Educational owner-driver fleet management; see PROVENANCE.md",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "mysql2": "^3.14.0"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "overrides": {
+    "minimatch": "^11.0.1"
+  }
+}
