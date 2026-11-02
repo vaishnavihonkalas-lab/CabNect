@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Owner Login - CabNect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #1A141A;
+      color: #D3AF85;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 217, 160, 0.2);
+      width: 100%;
+      max-width: 400px;
+      margin: 0 20px;
+      text-align: center;
+      animation: fadeInUp 1s ease;
+    }
+
+    .login-container img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 1rem;
+      border-radius: 50%;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #FFD9A0;
+      animation: fadeInDown 1s ease;
+    }
+
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    label {
+      align-self: flex-start;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+      color: #F4B315;
+      font-size: 0.9rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: #2C222C;
+      color: #F4B315;
+      font-size: 1rem;
+    }
+
+    input::placeholder {
+      color: #F4B315;
+    }
+
+    input[type="submit"] {
+      background: #F4B315;
+      color: #1A141A;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      transition: background 0.3s;
+    }
+
+    input[type="submit"]:hover {
+      background: #e0c195;
+    }
+
+    .alert {
+      background-color: #F4B315;
+      color: white;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    p {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    a {
+      color: #F4B315;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+</head>
+<body>
+<% if (notice) { %><p role="status" style="padding:12px;background:#e5ffe8;color:#14361c"><%= notice %></p><% } %>
+
+  <div class="login-container">
+    <img src="\images\ownericon.jpg" alt="Logo">
+    <h2>Owner Login</h2>
+
+    
+  
+
+    <form action="/owner/login" method="post">
+<input type="hidden" name="_csrf" value="<%= csrf %>">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required placeholder="Enter your email">
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required placeholder="Enter your password">
+
+      <input type="submit" value="Login">
+    </form>
+
+    <p>Don't have an account? <a href="/owner/signup">Sign up here</a></p>
+  </div>
+
+</body>
+</html>

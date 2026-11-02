@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CabNect - Welcome</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+   html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #1A141A;
+  color: #D3AF85;
+  overflow-x: hidden;
+}
+
+.navbar {
+  background-color: #1A141A;
+  color: #F4B315;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  font-size: 1.1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar .logo img {
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #F4B315;
+  box-shadow: 0 0 10px rgba(244, 179, 21, 0.6);
+}
+
+.navbar .logo span {
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #F4B315;
+  letter-spacing: 1px;
+}
+
+.navbar nav a {
+  color: #E59312;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: 600;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar nav a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background-color: #F4B315;
+  transition: 0.4s ease-in-out;
+}
+
+.navbar nav a:hover::after {
+  width: 100%;
+}
+
+.navbar nav a:hover {
+  color: #F4B315;
+  transform: scale(1.05);
+}
+
+.hero-section {
+  padding: 2rem;
+  background: linear-gradient(to right, #2b1f24, #1f1c20);
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  max-width: 600px;
+  color: #f5cbaa;
+  font-size: 2rem;
+  animation: fadeInLeft 1s ease-out forwards;
+  opacity: 0;
+}
+
+.cta-button {
+  margin-top: 2rem;
+  padding: 1rem 2.5rem;
+  font-size: 1.25rem;
+  background-color: #f5a623;
+  color: black;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 12px rgba(245, 166, 35, 0.4);
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}
+
+.cta-button:hover {
+  background-color: #e08912;
+  transform: scale(1.08);
+}
+
+.hero-image {
+  width: 500px;
+  height: auto;
+  object-fit: contain;
+  animation: floatCar 4s ease-in-out infinite;
+}
+
+.features {
+  background: #423738;
+  color: #D3AF85;
+  padding: 4rem 5%;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  color: #E59312;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  background: #1A141A;
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+}
+
+.feature-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.services {
+  background: #1A141A;
+  padding: 4rem 5%;
+  text-align: center;
+  color: antiquewhite;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.45;
+  z-index: 0;
+}
+
+.services-content {
+  position: relative;
+  z-index: 2;
+}
+
+.service-list {
+  list-style: none;
+  padding: 0;
+  columns: 2;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.service-list li {
+  margin-bottom: 2rem;
+}
+
+.cta {
+  background: linear-gradient(to right, #423738, #1A141A);
+  color: #D3AF85;
+  text-align: center;
+  padding: 3rem 5%;
+}
+
+.cta-buttons a {
+  margin: 1rem;
+  font-size: 1rem;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #1A141A;
+  color: #D3AF85;
+}
+
+@keyframes fadeInLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes floatCar {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Mobile & Tablet Responsiveness */
+@media (max-width: 768px) {
+  .navbar {
+   nav ul li a {
+        font-size: 10px; /* Smaller font size for mobile */
+        padding: 8px;   /* Adjust padding for better fit */
+    }
+  }
+
+  
+
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image {
+    max-width: 300px;
+    margin-top: 2rem;
+  }
+
+  .feature-card img {
+    height: 150px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-button {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+  }
+
+  .service-list {
+    columns: 1;
+  }
+
+  .services-content {
+    font-size: 1rem;
+  }
+
+  footer {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-button {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .navbar nav a {
+    font-size: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+  </style>
+</head>
+
+<body class="landing orange-navy-theme">
+  <header class="navbar">
+    <div class="logo">
+      <img src="\images\logo.png" alt="CabNect Logo">
+      <span>CabNect</span>
+    </div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about">About Us</a>
+      <a href="/owner/login">Owner Login</a>
+      <a href="/driver/login">Driver Login</a>
+    </nav>
+  </header>
+
+  <div class="hero-section">
+    <div class="hero-content">
+      <div class="hero-text">
+        <p>Experience seamless and reliable cab services for your company. Assign drivers, manage fares, and track trips with CabNect!</p>
+        <a href="#get-started" class="cta-button">Get Started</a>
+      </div>
+      <img src="/images/cab.svg" alt="Taxi Image" class="hero-image">
+    </div>
+  </div>
+
+  <section class="features">
+    <h2 class="section-title">Why Choose CabNect?</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <img src="/images/icon1.svg" alt="Local Transport">
+        <h3>🧭 Local Transport</h3>
+        <p>Daily local rides made simple for employees and logistics.</p>
+      </div>
+      <div class="feature-card">
+        <img src="/images/icon2.svg" alt="Business Transport">
+        <h3>🏢 Business Transport</h3>
+        <p>Professional and secure travel solutions for your workforce.</p>
+      </div>
+      <div class="feature-card">
+        <img src="/images/icon3.svg" alt="City Rides">
+        <h3>🏙️ City Transport</h3>
+        <p>Smart trip scheduling with experienced drivers on city routes.</p>
+      </div>
+      <div class="feature-card">
+        <img src="/images/icon4.svg" alt="Fare System">
+        <h3>💳 Transparent Fares</h3>
+        <p>Automated fare split — 60% to drivers, 40% to company owners.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="services">
+    
+    <div class="services-content">
+      <h2 class="section-title">Our Services</h2>
+      <ul class="service-list">
+        <h3><li>Real-time Cab Booking</li></h3>
+        <h3><li>Driver Assignment System</li></h3>
+        <h3><li>Live Trip Tracking</li></h3>
+        <h3><li>SMS & Email Notifications</li></h3>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta" id="get-started">
+    <h2 class="section-title">Start your journey with CabNect!</h2>
+    <p>Login to manage your rides, assign drivers, and track payments.</p>
+    <div class="cta-buttons">
+      <a href="/owner/login" class="cta-button">Owner Login</a>
+      <a href="/driver/login" class="cta-button">Driver Login</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 CabNect. Book your ride now!</p>
+  </footer>
+</body>
+</html>

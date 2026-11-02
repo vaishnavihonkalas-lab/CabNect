@@ -1,0 +1,145 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Driver Login - CabNect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #1A141A;
+      color: #D3AF85;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    .login-section {
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 20px;
+    }
+
+    .login-content {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 217, 160, 0.2);
+      width: 100%;
+      animation: fadeInUp 1s ease;
+    }
+
+    .login-content img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1rem;
+  object-fit: cover;
+  border-radius: 50%;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #FFD9A0;
+      animation: fadeInDown 1s ease;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: #2C222C;
+      color: #F4B315;
+      font-size: 1rem;
+    }
+
+    input::placeholder {
+      color: #F4B315;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.75rem;
+      background: #F4B315;
+      color: #1A141A;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #e0c195;
+    }
+
+    .signup-link {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    a {
+      color: #F4B315;
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+<% if (notice) { %><p role="status" style="padding:12px;background:#e5ffe8;color:#14361c"><%= notice %></p><% } %>
+  <% if (typeof msg !== 'undefined' && msg === 'account_deleted') { %>
+    <div style="background-color: #28a745; color: white; padding: 1rem; border-radius: 10px; margin-bottom: 1rem; text-align: center;">
+      🎉 Your account has been successfully deleted. Thank you for being with CabNect!
+    </div>
+  <% } %>
+  <div class="login-section">
+    <div class="login-content">
+      <img src="/images/drivericon.svg" alt="Driver Login" />
+      <h2>Driver Login</h2>
+      <form action="/driver/login" method="POST">
+<input type="hidden" name="_csrf" value="<%= csrf %>">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email">
+  
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required placeholder="Enter your password">
+  
+        <button type="submit">Login</button>
+      </form>
+      <p class="signup-link">Don't have an account? <a href="/driver/signup">Sign up</a></p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 CabNect. Secure login for drivers.</p>
+  </footer>
+
+</body>
+</html>
+
+

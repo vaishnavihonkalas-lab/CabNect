@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Driver Signup - CabNect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #1A141A;
+      color: #D3AF85;
+      overflow-x: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    .signup-section {
+      text-align: center;
+    }
+
+    .signup-content {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 217, 160, 0.2);
+      width: 350px;
+      animation: fadeInUp 1s ease;
+    }
+
+    .profile-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 2px solid #F4B315;
+  background-color: #2C222C; /* fallback in case image fails */
+}
+
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #FFD9A0;
+      animation: fadeInDown 1s ease;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    label {
+      text-align: left;
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 0.8rem;
+      border: none;
+      border-radius: 8px;
+      background: #2C222C;
+      color: #F4B315;
+      font-size: 1rem;
+    }
+
+    input::placeholder {
+      color: #F4B315;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.75rem;
+      background: #F4B315;
+      color: #1A141A;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #e0c195;
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+<% if (notice) { %><p role="status" style="padding:12px;background:#e5ffe8;color:#14361c"><%= notice %></p><% } %>
+  <div class="signup-section">
+    <div class="signup-content">
+      <img src="/images/drivericon.svg" alt="Driver Icon" class="profile-image">
+      <h2>Driver Signup</h2>
+      <form method="POST" action="/driver/signup">
+<input type="hidden" name="_csrf" value="<%= csrf %>">
+        <label for="name">Name:</label>
+        <input name="name" id="name" required placeholder="Enter your name">
+
+        <label for="age">Age:</label>
+        <input name="age" id="age" type="number" required placeholder="Enter your age">
+
+        <label for="gender">Gender:</label>
+        <input name="gender" id="gender" required placeholder="Enter your gender">
+
+        <label for="license_no">License No:</label>
+        <input name="license_no" id="license_no" required placeholder="Enter license number">
+
+        <label for="mobile_no">Mobile:</label>
+        <input name="mobile_no" id="mobile_no" required placeholder="Enter mobile number">
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required placeholder="Enter your email">
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required placeholder="Create a password">
+
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 CabNect. Register securely as a driver.</p>
+  </footer>
+</body>
+</html>
